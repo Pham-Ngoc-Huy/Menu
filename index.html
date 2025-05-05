@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Minecraft Anniversary Invitation</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body class="min-h-screen flex flex-col items-center justify-center p-4">
+    <div class="minecraft-bg pixel-border max-w-2xl w-full p-8 mx-auto">
+        <div class="text-center mb-6">
+            <h1 class="text-5xl mb-2 text-white text-shadow" style="text-shadow: 3px 3px #222;">Our 1 Year Anniversary</h1>
+            <div class="flex justify-center items-center gap-3 mb-4">
+                <div class="pixel-heart"></div>
+                <span class="text-3xl">❤️</span>
+                <div class="pixel-heart"></div>
+            </div>
+        </div>
+        
+        <div class="flex flex-col md:flex-row items-center justify-center gap-8 mb-8">
+            <div class="character floating">
+                <div class="character-head">
+                    <div class="character-face">
+                        <div class="character-eye-left"></div>
+                        <div class="character-eye-right"></div>
+                        <div class="character-face-smile"></div>
+                    </div>
+                </div>
+                <div class="character-body"></div>
+                <div class="character-arm-left"></div>
+                <div class="character-arm-right"></div>
+                <div class="character-leg-left"></div>
+                <div class="character-leg-right"></div>
+            </div>
+            
+            <div class="text-center md:text-left">
+                <h2 class="text-4xl mb-4">Will you join me?</h2>
+                <p class="text-2xl mb-6">Let's celebrate our special day together!</p>
+                <div class="flex flex-wrap justify-center md:justify-start gap-4">
+                    <div class="grass-block"></div>
+                    <div class="dirt-block"></div>
+                    <div class="grass-block"></div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="bg-black bg-opacity-50 p-6 rounded-lg mb-8">
+            <div class="text-center">
+                <h3 class="text-3xl mb-4">Event Details</h3>
+                <p class="text-xl mb-2">Date: <span id="date-display">Select a date</span></p>
+                <p class="text-xl mb-2">Time: <span id="time-display">Select a time</span></p>
+                <p class="text-xl mb-2">Location: <span id="location-display">Our special place</span></p>
+            </div>
+        </div>
+        
+        <div class="flex flex-col gap-4 max-w-md mx-auto">
+            <div>
+                <label class="block text-xl mb-2">Choose a Date:</label>
+                <input type="date" id="date-input" class="minecraft-btn w-full p-3 text-xl">
+            </div>
+            
+            <div>
+                <label class="block text-xl mb-2">Choose a Time:</label>
+                <input type="time" id="time-input" class="minecraft-btn w-full p-3 text-xl">
+            </div>
+            
+            <div>
+                <label class="block text-xl mb-2">Location:</label>
+                <input type="text" id="location-input" placeholder="Enter our special place" class="minecraft-btn w-full p-3 text-xl">
+            </div>
+            
+            <div>
+                <label class="block text-xl mb-2">Personal Message:</label>
+                <textarea id="message-input" placeholder="Write your love message here..." class="minecraft-btn w-full p-3 text-xl h-32"></textarea>
+            </div>
+            
+            <button id="create-invitation" class="minecraft-btn text-2xl py-4 px-8 mt-4">Create Our Special Invitation</button>
+        </div>
+    </div>
+    
+    <!-- Modal for the final invitation -->
+    <div id="invitation-modal" class="fixed inset-0 bg-black bg-opacity-80 flex items-center justify-center z-50 hidden">
+        <div class="minecraft-bg pixel-border max-w-xl w-full p-8 mx-4 relative">
+            <button id="close-modal" class="absolute top-4 right-4 minecraft-btn px-4 py-2">X</button>
+            
+            <div class="text-center">
+                <h2 class="text-4xl mb-4">Our 1 Year Anniversary</h2>
+                <div class="flex justify-center items-center gap-3 mb-6">
+                    <div class="pixel-heart"></div>
+                    <span class="text-3xl">❤️</span>
+                    <div class="pixel-heart"></div>
+                </div>
+                
+                <div class="character floating mx-auto mb-6">
+                    <div class="character-head">
+                        <div class="character-face">
+                            <div class="character-eye-left"></div>
+                            <div class="character-eye-right"></div>
+                            <div class="character-face-smile"></div>
+                        </div>
+                    </div>
+                    <div class="character-body"></div>
+                    <div class="character-arm-left"></div>
+                    <div class="character-arm-right"></div>
+                    <div class="character-leg-left"></div>
+                    <div class="character-leg-right"></div>
+                </div>
+                
+                <div class="bg-black bg-opacity-50 p-6 rounded-lg mb-6">
+                    <h3 class="text-3xl mb-4">You're Invited!</h3>
+                    <p class="text-xl mb-2">Date: <span id="final-date">TBD</span></p>
+                    <p class="text-xl mb-2">Time: <span id="final-time">TBD</span></p>
+                    <p class="text-xl mb-2">Location: <span id="final-location">Our special place</span></p>
+                </div>
+                
+                <div class="bg-black bg-opacity-50 p-6 rounded-lg mb-6">
+                    <h3 class="text-2xl mb-2">Personal Message:</h3>
+                    <p id="final-message" class="text-xl italic">I love you!</p>
+                </div>
+                
+                <div class="flex justify-center gap-4">
+                    <button id="accept-btn" class="minecraft-btn text-xl py-3 px-6">Accept</button>
+                    <button id="maybe-btn" class="minecraft-btn text-xl py-3 px-6">Maybe</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <script>
+        const dateInput = document.getElementById('date-input');
+        const timeInput = document.getElementById('time-input');
+        const locationInput = document.getElementById('location-input');
+        const messageInput = document.getElementById('message-input');
+        const dateDisplay = document.getElementById('date-display');
+        const timeDisplay = document.getElementById('time-display');
+        const locationDisplay = document.getElementById('location-display');
+        
+        const finalDate = document.getElementById('final-date');
+        const finalTime = document.getElementById('final-time');
+        const finalLocation = document.getElementById('final-location');
+        const finalMessage = document.getElementById('final-message');
+        
+        const invitationModal = document.getElementById('invitation-modal');
+        const createInvitationBtn = document.getElementById('create-invitation');
+        const closeModalBtn = document.getElementById('close-modal');
+        const acceptBtn = document.getElementById('accept-btn');
+        const maybeBtn = document.getElementById('maybe-btn');
+        
+        dateInput.addEventListener('change', () => {
+            const date = new Date(dateInput.value);
+            const formattedDate = date.toLocaleDateString('en-US', { 
+                weekday: 'long', 
+                year: 'numeric', 
+                month: 'long', 
+                day: 'numeric' 
+            });
+            dateDisplay.textContent = formattedDate;
+        });
+        
+        timeInput.addEventListener('change', () => {
+            timeDisplay.textContent = timeInput.value;
+        });
+        
+        locationInput.addEventListener('input', () => {
+            locationDisplay.textContent = locationInput.value || 'Our special place';
+        });
+        
+        createInvitationBtn.addEventListener('click', () => {
+            finalDate.textContent = dateDisplay.textContent;
+            finalTime.textContent = timeDisplay.textContent;
+            finalLocation.textContent = locationDisplay.textContent;
+            finalMessage.textContent = messageInput.value || 'I love you!';
+            
+            invitationModal.classList.remove('hidden');
+        });
+        
+        closeModalBtn.addEventListener('click', () => {
+            invitationModal.classList.add('hidden');
+        });
+        
+        acceptBtn.addEventListener('click', () => {
+            alert('Yay! Looking forward to celebrating with you! ❤️');
+            invitationModal.classList.add('hidden');
+        });
+        
+        maybeBtn.addEventListener('click', () => {
+            alert('No worries! Let me know when you decide. ❤️');
+            invitationModal.classList.add('hidden');
+        });
+    </script>
+<script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'93a9194272cafe15',t:'MTc0NjM3MzI0OC4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
+</html>
