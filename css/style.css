@@ -1,231 +1,94 @@
 @import url('https://fonts.googleapis.com/css2?family=VT323&display=swap');
-        
+@import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@400;700&display=swap');
+
 body {
-    font-family: 'VT323', monospace;
-    background-color: #222;
-    color: white;
+    font-family: 'Quicksand', sans-serif;
+    background-color: #ffcce6;
     overflow-x: hidden;
 }
 
-.minecraft-btn {
-    background-color: #f5a3c6;
-    border: 3px solid #222;
-    box-shadow: inset -2px -4px 0 0 rgba(0,0,0,0.3);
-    color: #fff;
-    text-shadow: 2px 2px #222;
-    transition: all 0.1s;
-    image-rendering: pixelated;
-}
-
-.minecraft-btn:hover {
-    background-color: #f7b8d3;
-}
-
-.minecraft-btn:active {
-    box-shadow: inset 2px 4px 0 0 rgba(0,0,0,0.3);
-    transform: translate(2px, 2px);
+.minecraft {
+    font-family: 'VT323', monospace;
 }
 
 .pixel-border {
-    border-style: solid;
-    border-width: 4px;
-    border-color: #222;
-    box-shadow: inset 0 0 0 4px #f5a3c6;
+    box-shadow: 
+        0 0 0 2px #000,
+        inset 0 0 0 2px #000;
+    image-rendering: pixelated;
 }
 
-.pixel-heart {
+.block {
+    width: 40px;
+    height: 40px;
     display: inline-block;
-    position: relative;
-    width: 30px;
-    height: 30px;
-    background-color: #ff4081;
-    transform: rotate(45deg);
-    animation: pulse 1.5s infinite;
+    margin: 2px;
+    image-rendering: pixelated;
 }
 
-.pixel-heart:before, .pixel-heart:after {
-    content: "";
+.dirt {
+    background-color: #8B5A2B;
+    background-image: linear-gradient(45deg, #7D4E24 25%, transparent 25%, transparent 75%, #7D4E24 75%, #7D4E24), 
+                      linear-gradient(45deg, #7D4E24 25%, transparent 25%, transparent 75%, #7D4E24 75%, #7D4E24);
+    background-size: 20px 20px;
+    background-position: 0 0, 10px 10px;
+}
+
+.grass {
+    background-color: #7CFC00;
+    background-image: linear-gradient(45deg, #5EA800 25%, transparent 25%, transparent 75%, #5EA800 75%, #5EA800), 
+                      linear-gradient(45deg, #5EA800 25%, transparent 25%, transparent 75%, #5EA800 75%, #5EA800);
+    background-size: 20px 20px;
+    background-position: 0 0, 10px 10px;
+}
+
+.stone {
+    background-color: #A9A9A9;
+    background-image: linear-gradient(45deg, #8A8A8A 25%, transparent 25%, transparent 75%, #8A8A8A 75%, #8A8A8A), 
+                      linear-gradient(45deg, #8A8A8A 25%, transparent 25%, transparent 75%, #8A8A8A 75%, #8A8A8A);
+    background-size: 20px 20px;
+    background-position: 0 0, 10px 10px;
+}
+
+.twinkle {
     position: absolute;
-    width: 30px;
-    height: 30px;
-    background-color: #ff4081;
+    background-color: white;
     border-radius: 50%;
+    animation: twinkle 2s infinite;
 }
 
-.pixel-heart:before {
-    top: -15px;
-    left: 0;
+@keyframes twinkle {
+    0% { opacity: 0; transform: scale(2); }
+    50% { opacity: 1; transform: scale(4); }
+    100% { opacity: 0; transform: scale(3); }
 }
 
-.pixel-heart:after {
-    top: 0;
-    left: -15px;
+.heart {
+    display: inline-block;
+    animation: beat 1.5s infinite;
 }
 
-@keyframes pulse {
-    0% { transform: rotate(45deg) scale(1); }
-    50% { transform: rotate(45deg) scale(1.2); }
-    100% { transform: rotate(45deg) scale(1); }
+@keyframes beat {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.3); }
+    100% { transform: scale(1); }
 }
 
-.minecraft-bg {
-    background-image: 
-        linear-gradient(rgba(245, 163, 198, 0.7), rgba(245, 163, 198, 0.7)),
-        url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='64' height='64' viewBox='0 0 64 64'%3E%3Cg fill='%23ffffff' fill-opacity='0.1'%3E%3Cpath d='M0 0h8v8H0zm16 0h8v8h-8zm16 0h8v8h-8zm16 0h8v8h-8zM8 8h8v8H8zm16 0h8v8h-8zm16 0h8v8h-8zm16 0h8v8h-8zM0 16h8v8H0zm16 0h8v8h-8zm16 0h8v8h-8zm16 0h8v8h-8zM8 24h8v8H8zm16 0h8v8h-8zm16 0h8v8h-8zm16 0h8v8h-8zM0 32h8v8H0zm16 0h8v8h-8zm16 0h8v8h-8zm16 0h8v8h-8zM8 40h8v8H8zm16 0h8v8h-8zm16 0h8v8h-8zm16 0h8v8h-8zM0 48h8v8H0zm16 0h8v8h-8zm16 0h8v8h-8zm16 0h8v8h-8zM8 56h8v8H8zm16 0h8v8h-8zm16 0h8v8h-8zm16 0h8v8h-8z'/%3E%3C/g%3E%3C/svg%3E");
-}
-
-.character {
-    width: 80px;
-    height: 160px;
-    background-color: transparent;
-    position: relative;
-    margin: 0 auto;
-}
-
-.character-head {
-    width: 40px;
-    height: 40px;
-    background-color: #ffd3a5;
-    position: absolute;
-    top: 0;
-    left: 20px;
-}
-
-.character-body {
-    width: 40px;
-    height: 60px;
-    background-color: #f5a3c6;
-    position: absolute;
-    top: 40px;
-    left: 20px;
-}
-
-.character-arm-left {
-    width: 15px;
-    height: 50px;
-    background-color: #ffd3a5;
-    position: absolute;
-    top: 40px;
-    left: 5px;
-}
-
-.character-arm-right {
-    width: 15px;
-    height: 50px;
-    background-color: #ffd3a5;
-    position: absolute;
-    top: 40px;
-    right: 5px;
-}
-
-.character-leg-left {
-    width: 15px;
-    height: 50px;
-    background-color: #6b4423;
-    position: absolute;
-    top: 100px;
-    left: 20px;
-}
-
-.character-leg-right {
-    width: 15px;
-    height: 50px;
-    background-color: #6b4423;
-    position: absolute;
-    top: 100px;
-    right: 20px;
-}
-
-.character-face {
-    position: absolute;
-    width: 40px;
-    height: 40px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-.character-face-smile {
-    width: 20px;
-    height: 10px;
-    border-bottom: 3px solid #222;
-    border-radius: 0 0 10px 10px;
-    margin-top: 10px;
-}
-
-.character-eye-left, .character-eye-right {
-    width: 6px;
-    height: 6px;
-    background-color: #222;
-    position: absolute;
-    top: 15px;
-}
-
-.character-eye-left {
-    left: 10px;
-}
-
-.character-eye-right {
-    right: 10px;
-}
-
-.floating {
+.float {
     animation: float 3s ease-in-out infinite;
 }
 
 @keyframes float {
     0% { transform: translateY(0px); }
-    50% { transform: translateY(-10px); }
+    50% { transform: translateY(-15px); }
     100% { transform: translateY(0px); }
 }
 
-.dirt-block {
-    width: 64px;
-    height: 64px;
-    background-color: #8B5A2B;
-    position: relative;
-    display: inline-block;
-    margin: 5px;
-    box-shadow: inset -5px -5px 0 0 rgba(0,0,0,0.3);
+.sanrio-character {
+    transition: transform 0.3s;
 }
 
-.dirt-block::after {
-    content: "";
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 16 16'%3E%3Cg fill='%23ffffff' fill-opacity='0.1'%3E%3Ccircle cx='4' cy='4' r='1'/%3E%3Ccircle cx='12' cy='4' r='1'/%3E%3Ccircle cx='8' cy='8' r='1'/%3E%3Ccircle cx='4' cy='12' r='1'/%3E%3Ccircle cx='12' cy='12' r='1'/%3E%3C/g%3E%3C/svg%3E");
+.sanrio-character:hover {
+    transform: scale(1.2) rotate(5deg);
 }
-
-.grass-block {
-    width: 64px;
-    height: 64px;
-    background-color: #8B5A2B;
-    position: relative;
-    display: inline-block;
-    margin: 5px;
-    box-shadow: inset -5px -5px 0 0 rgba(0,0,0,0.3);
-}
-
-.grass-block::before {
-    content: "";
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    height: 15px;
-    background-color: #f5a3c6;
-    box-shadow: inset -5px 0 0 0 rgba(0,0,0,0.2);
-}
-
-.grass-block::after {
-    content: "";
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 16 16'%3E%3Cg fill='%23ffffff' fill-opacity='0.1'%3E%3Ccircle cx='4' cy='4' r='1'/%3E%3Ccircle cx='12' cy='4' r='1'/%3E%3Ccircle cx='8' cy='8' r='1'/%3E%3Ccircle cx='4' cy='12' r='1'/%3E%3Ccircle cx='12' cy='12' r='1'/%3E%3C/g%3E%3C/svg%3E");
-}
+  

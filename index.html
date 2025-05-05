@@ -3,191 +3,220 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Minecraft Anniversary Invitation</title>
+    <title>Twinkly Minecraft Sanrio Message</title>
     <script src="https://cdn.tailwindcss.com"></script>
-    <link rel="stylesheet" href="css/style.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+        <link rel="stylesheet" href="css/style.css">
+    
 </head>
-<body class="min-h-screen flex flex-col items-center justify-center p-4">
-    <div class="minecraft-bg pixel-border max-w-2xl w-full p-8 mx-auto">
-        <div class="text-center mb-6">
-            <h1 class="text-5xl mb-2 text-white text-shadow" style="text-shadow: 3px 3px #222;">Our 1 Year Anniversary</h1>
-            <div class="flex justify-center items-center gap-3 mb-4">
-                <div class="pixel-heart"></div>
-                <span class="text-3xl">❤️</span>
-                <div class="pixel-heart"></div>
-            </div>
+<body>
+    <div id="stars" class="fixed w-full h-full top-0 left-0 z-0"></div>
+    
+    <div class="relative z-10 min-h-screen flex flex-col items-center justify-center p-4">
+        <div class="minecraft text-center mb-8">
+            <h1 class="text-6xl md:text-8xl font-bold text-red-400 drop-shadow-[1_5px_0_rgba(0,0,0,0.8)]">
+                Ready For The Suprising ?
+            </h1>
+            <p class="text-2xl md:text-5xl text-grey drop-shadow-[1_2px_0_rgba(0,0,0,0.8)] mt-2">
+                Guess what gonna be next ?<br>
+            </p>
         </div>
         
-        <div class="flex flex-col md:flex-row items-center justify-center gap-8 mb-8">
-            <div class="character floating">
-                <div class="character-head">
-                    <div class="character-face">
-                        <div class="character-eye-left"></div>
-                        <div class="character-eye-right"></div>
-                        <div class="character-face-smile"></div>
+        <div class="w-full max-w-3xl bg-white rounded-lg p-6 relative">
+            <div class="absolute -top-5 left-0 w-full flex justify-center">
+                <div class="flex">
+                    <div class="block grass"></div>
+                    <div class="block grass"></div>
+                    <div class="block grass"></div>
+                    <div class="block grass"></div>
+                    <div class="block grass"></div>
+                    <div class="block grass"></div>
+                    <div class="block grass"></div>
+                </div>
+            </div>
+            
+            <div class="absolute -bottom-5 left-0 w-full flex justify-center">
+                <div class="flex">
+                    <div class="block dirt"></div>
+                    <div class="block dirt"></div>
+                    <div class="block stone"></div>
+                    <div class="block dirt"></div>
+                    <div class="block stone"></div>
+                    <div class="block dirt"></div>
+                    <div class="block dirt"></div>
+                </div>
+            </div>
+            
+            <div class="text-center py-8">
+                <div class="flex justify-center mb-6">
+                    <div class="sanrio-character float mx-2">
+                        <svg width="100" height="100" viewBox="0 0 100 100">
+                            <circle cx="50" cy="50" r="40" fill="white" stroke="black" stroke-width="2"/>
+                            <circle cx="35" cy="45" r="5" fill="black"/>
+                            <circle cx="65" cy="45" r="5" fill="black"/>
+                            <circle cx="30" cy="30" r="10" fill="white" stroke="black" stroke-width="2"/>
+                            <circle cx="70" cy="30" r="10" fill="white" stroke="black" stroke-width="2"/>
+                            <path d="M45 60 Q50 65 55 60" stroke="black" stroke-width="2" fill="none"/>
+                            <path d="M42 38 L35 30 M58 38 L65 30" stroke="black" stroke-width="2"/>
+                            <rect x="45" y="52" width="10" height="5" fill="#ff99cc"/>
+                        </svg>
+                    </div>
+                    <div class="sanrio-character float mx-2" style="animation-delay: 0.5s">
+                        <svg width="100" height="100" viewBox="0 0 100 100">
+                            <circle cx="50" cy="55" r="35" fill="white" stroke="black" stroke-width="2"/>
+                            <path d="M25 40 Q25 10 50 15 Q75 10 75 40" fill="#ffccdd" stroke="black" stroke-width="2"/>
+                            <circle cx="40" cy="50" r="4" fill="black"/>
+                            <circle cx="60" cy="50" r="4" fill="black"/>
+                            <path d="M45 65 Q50 70 55 65" stroke="black" stroke-width="2" fill="none"/>
+                        </svg>
+                    </div>
+                    <div class="sanrio-character float mx-2" style="animation-delay: 1s">
+                        <svg width="100" height="100" viewBox="0 0 100 100">
+                            <circle cx="50" cy="60" r="35" fill="white" stroke="black" stroke-width="2"/>
+                            <path d="M30 30 Q50 0 70 30" fill="white" stroke="black" stroke-width="2"/>
+                            <circle cx="40" cy="55" r="4" fill="black"/>
+                            <circle cx="60" cy="55" r="4" fill="black"/>
+                            <path d="M45 70 Q50 75 55 70" stroke="black" stroke-width="2" fill="none"/>
+                            <circle cx="50" cy="45" r="8" fill="#99ccff"/>
+                        </svg>
+                    </div>
+                      
+                </div>
+                
+                <h2 class="text-3xl font-bold text-pink-500 mb-4">Do U Agree To Have a Date with me ?</h2>
+                <p class="text-xl text-gray-700 mb-6">
+                    Choose ? <strong> YESSS </strong> or No </p>
+                </p>
+                <div class="flex justify-center gap-6 mb-6">
+                    <button id="YESS" class="minecraft bg-green-500 hover:bg-green-600 text-white font-bold py-3 px-6 text-xl border-b-4 border-green-700 hover:border-green-800 rounded pixel-border transition-all">
+                        YESSS
+                    </button>
+                
+                    <button id="NO" class="minecraft bg-red-500 hover:bg-red-600 text-white font-bold py-3 px-6 text-xl border-b-4 border-red-700 hover:border-red-800 rounded pixel-border transition-all">
+                        NO
+                    </button>
+                </div>
+                
+
+                
+                
+                <div id="loveMessage" class="mt-6 hidden">
+                    <p class="text-2xl text-pink-600 font-bold">Yo! See u on 13th May okayyy - be ready</p>
+                    <div class="flex justify-center mt-4">
+                        <div class="heart text-5xl">❤️</div>
+                        <div class="heart text-5xl" style="animation-delay: 0.3s">💖</div>
+                        <div class="heart text-5xl" style="animation-delay: 0.6s">💕</div>
                     </div>
                 </div>
-                <div class="character-body"></div>
-                <div class="character-arm-left"></div>
-                <div class="character-arm-right"></div>
-                <div class="character-leg-left"></div>
-                <div class="character-leg-right"></div>
-            </div>
-            
-            <div class="text-center md:text-left">
-                <h2 class="text-4xl mb-4">Will you join me?</h2>
-                <p class="text-2xl mb-6">Let's celebrate our special day together!</p>
-                <div class="flex flex-wrap justify-center md:justify-start gap-4">
-                    <div class="grass-block"></div>
-                    <div class="dirt-block"></div>
-                    <div class="grass-block"></div>
-                </div>
             </div>
         </div>
         
-        <div class="bg-black bg-opacity-50 p-6 rounded-lg mb-8">
-            <div class="text-center">
-                <h3 class="text-3xl mb-4">Event Details</h3>
-                <p class="text-xl mb-2">Date: <span id="date-display">Select a date</span></p>
-                <p class="text-xl mb-2">Time: <span id="time-display">Select a time</span></p>
-                <p class="text-xl mb-2">Location: <span id="location-display">Our special place</span></p>
-            </div>
-        </div>
-        
-        <div class="flex flex-col gap-4 max-w-md mx-auto">
-            <div>
-                <label class="block text-xl mb-2">Choose a Date:</label>
-                <input type="date" id="date-input" class="minecraft-btn w-full p-3 text-xl">
-            </div>
-            
-            <div>
-                <label class="block text-xl mb-2">Choose a Time:</label>
-                <input type="time" id="time-input" class="minecraft-btn w-full p-3 text-xl">
-            </div>
-            
-            <div>
-                <label class="block text-xl mb-2">Location:</label>
-                <input type="text" id="location-input" placeholder="Enter our special place" class="minecraft-btn w-full p-3 text-xl">
-            </div>
-            
-            <div>
-                <label class="block text-xl mb-2">Personal Message:</label>
-                <textarea id="message-input" placeholder="Write your love message here..." class="minecraft-btn w-full p-3 text-xl h-32"></textarea>
-            </div>
-            
-            <button id="create-invitation" class="minecraft-btn text-2xl py-4 px-8 mt-4">Create Our Special Invitation</button>
-        </div>
     </div>
-    
-    <!-- Modal for the final invitation -->
-    <div id="invitation-modal" class="fixed inset-0 bg-black bg-opacity-80 flex items-center justify-center z-50 hidden">
-        <div class="minecraft-bg pixel-border max-w-xl w-full p-8 mx-4 relative">
-            <button id="close-modal" class="absolute top-4 right-4 minecraft-btn px-4 py-2">X</button>
-            
-            <div class="text-center">
-                <h2 class="text-4xl mb-4">Our 1 Year Anniversary</h2>
-                <div class="flex justify-center items-center gap-3 mb-6">
-                    <div class="pixel-heart"></div>
-                    <span class="text-3xl">❤️</span>
-                    <div class="pixel-heart"></div>
-                </div>
-                
-                <div class="character floating mx-auto mb-6">
-                    <div class="character-head">
-                        <div class="character-face">
-                            <div class="character-eye-left"></div>
-                            <div class="character-eye-right"></div>
-                            <div class="character-face-smile"></div>
-                        </div>
-                    </div>
-                    <div class="character-body"></div>
-                    <div class="character-arm-left"></div>
-                    <div class="character-arm-right"></div>
-                    <div class="character-leg-left"></div>
-                    <div class="character-leg-right"></div>
-                </div>
-                
-                <div class="bg-black bg-opacity-50 p-6 rounded-lg mb-6">
-                    <h3 class="text-3xl mb-4">You're Invited!</h3>
-                    <p class="text-xl mb-2">Date: <span id="final-date">TBD</span></p>
-                    <p class="text-xl mb-2">Time: <span id="final-time">TBD</span></p>
-                    <p class="text-xl mb-2">Location: <span id="final-location">Our special place</span></p>
-                </div>
-                
-                <div class="bg-black bg-opacity-50 p-6 rounded-lg mb-6">
-                    <h3 class="text-2xl mb-2">Personal Message:</h3>
-                    <p id="final-message" class="text-xl italic">I love you!</p>
-                </div>
-                
-                <div class="flex justify-center gap-4">
-                    <button id="accept-btn" class="minecraft-btn text-xl py-3 px-6">Accept</button>
-                    <button id="maybe-btn" class="minecraft-btn text-xl py-3 px-6">Maybe</button>
-                </div>
-            </div>
-        </div>
-    </div>
-    
+
     <script>
-        const dateInput = document.getElementById('date-input');
-        const timeInput = document.getElementById('time-input');
-        const locationInput = document.getElementById('location-input');
-        const messageInput = document.getElementById('message-input');
-        const dateDisplay = document.getElementById('date-display');
-        const timeDisplay = document.getElementById('time-display');
-        const locationDisplay = document.getElementById('location-display');
-        
-        const finalDate = document.getElementById('final-date');
-        const finalTime = document.getElementById('final-time');
-        const finalLocation = document.getElementById('final-location');
-        const finalMessage = document.getElementById('final-message');
-        
-        const invitationModal = document.getElementById('invitation-modal');
-        const createInvitationBtn = document.getElementById('create-invitation');
-        const closeModalBtn = document.getElementById('close-modal');
-        const acceptBtn = document.getElementById('accept-btn');
-        const maybeBtn = document.getElementById('maybe-btn');
-        
-        dateInput.addEventListener('change', () => {
-            const date = new Date(dateInput.value);
-            const formattedDate = date.toLocaleDateString('en-US', { 
-                weekday: 'long', 
-                year: 'numeric', 
-                month: 'long', 
-                day: 'numeric' 
-            });
-            dateDisplay.textContent = formattedDate;
-        });
-        
-        timeInput.addEventListener('change', () => {
-            timeDisplay.textContent = timeInput.value;
-        });
-        
-        locationInput.addEventListener('input', () => {
-            locationDisplay.textContent = locationInput.value || 'Our special place';
-        });
-        
-        createInvitationBtn.addEventListener('click', () => {
-            finalDate.textContent = dateDisplay.textContent;
-            finalTime.textContent = timeDisplay.textContent;
-            finalLocation.textContent = locationDisplay.textContent;
-            finalMessage.textContent = messageInput.value || 'I love you!';
+        function createStars() {
+            const starsContainer = document.getElementById('stars');
+            const starCount = 100;
             
-            invitationModal.classList.remove('hidden');
+            for (let i = 0; i < starCount; i++) {
+                const star = document.createElement('div');
+                star.classList.add('twinkle');
+                
+                const x = Math.random() * 100;
+                const y = Math.random() * 100;
+                
+                const size = Math.random() * 5 + 2;
+                
+                const delay = Math.random() * 5;
+                
+                star.style.left = `${x}%`;
+                star.style.top = `${y}%`;
+                star.style.width = `${size}px`;
+                star.style.height = `${size}px`;
+                star.style.animationDelay = `${delay}s`;
+                
+                starsContainer.appendChild(star);
+            }
+        }
+        
+        document.getElementById('YESS').addEventListener('click', function() {
+            const loveMessage = document.getElementById('loveMessage');
+            loveMessage.classList.remove('hidden');
+            loveMessage.classList.add('animate-bounce');
+            
+            for (let i = 0; i < 20; i++) {
+                setTimeout(() => {
+                    createHeart();
+                }, i * 100);
+            }
+        });
+
+        $(function () {
+            const $btn = $("#NO");
+            let moveMultiplier = 1; 
+        
+            $btn.on("mouseover", function () {
+                if (!$btn.hasClass("absolute")) {
+                    $btn.css("position", "absolute");
+                    $btn.addClass("absolute");
+                }
+        
+                const parent = $btn.parent();
+                const btnWidth = $btn.outerWidth();
+                const btnHeight = $btn.outerHeight();
+                const maxX = parent.width() - btnWidth;
+                const maxY = parent.height() - btnHeight;
+        
+                const currentLeft = parseFloat($btn.css("left")) || 0;
+                const currentTop = parseFloat($btn.css("top")) || 0;
+        
+                const offsetX = (Math.random() < 0.5 ? -1 : 1) * (20 + Math.random() * 30) * moveMultiplier; 
+                const offsetY = (Math.random() < 0.5 ? -1 : 1) * (20 + Math.random() * 30) * moveMultiplier; 
+        
+                let newLeft = currentLeft + offsetX;
+                let newTop = currentTop + offsetY;
+        
+                // Keep inside the container
+                newLeft = Math.max(0, Math.min(maxX, newLeft));
+                newTop = Math.max(0, Math.min(maxY, newTop));
+        
+                $btn.css({
+                    left: newLeft + "px",
+                    top: newTop + "px",
+                    transition: "none"
+                });
+        
+                moveMultiplier += 0.1; 
+            });
         });
         
-        closeModalBtn.addEventListener('click', () => {
-            invitationModal.classList.add('hidden');
-        });
         
-        acceptBtn.addEventListener('click', () => {
-            alert('Yay! Looking forward to celebrating with you! ❤️');
-            invitationModal.classList.add('hidden');
-        });
+        function createHeart() {
+            const heart = document.createElement('div');
+            heart.innerHTML = ['❤️', '💖', '💕', '💓', '💗'][Math.floor(Math.random() * 5)];
+            heart.style.position = 'fixed';
+            heart.style.fontSize = `${Math.random() * 20 + 10}px`;
+            heart.style.left = `${Math.random() * 80 + 10}%`;
+            heart.style.top = '80%';
+            heart.style.opacity = '1';
+            heart.style.zIndex = '20';
+            heart.style.transition = 'all 3s ease-out';
+            
+            document.body.appendChild(heart);
+            
+            setTimeout(() => {
+                heart.style.transform = `translateY(-${Math.random() * 400 + 200}px) rotate(${Math.random() * 360}deg)`;
+                heart.style.opacity = '0';
+            }, 10);
+            
+            setTimeout(() => {
+                document.body.removeChild(heart);
+            }, 3000);
+        }
         
-        maybeBtn.addEventListener('click', () => {
-            alert('No worries! Let me know when you decide. ❤️');
-            invitationModal.classList.add('hidden');
-        });
+        window.onload = function() {
+            createStars();
+        };
     </script>
-<script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'93a9194272cafe15',t:'MTc0NjM3MzI0OC4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
+<script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'93b1a2d8a40a4012',t:'MTc0NjQ2Mjc3MC4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
 </html>
