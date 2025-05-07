@@ -140,16 +140,9 @@
         }
         
         document.getElementById('YESS').addEventListener('click', function() {
-            const loveMessage = document.getElementById('loveMessage');
-            loveMessage.classList.remove('hidden');
-            loveMessage.classList.add('animate-bounce');
-            
-            for (let i = 0; i < 20; i++) {
-                setTimeout(() => {
-                    createHeart();
-                }, i * 100);
-            }
+            window.location.href = 'menu.html';
         });
+
 
         $(function () {
             const $btn = $("#NO");
